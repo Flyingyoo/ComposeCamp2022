@@ -21,25 +21,12 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Search
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.codelab.basiclayouts.ui.theme.MySootheTheme
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.textInputServiceFactory
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,71 +40,23 @@ class MainActivity : ComponentActivity() {
 fun SearchBar(
     modifier: Modifier = Modifier
 ) {
-    TextField(
-        value = "",
-        onValueChange = {},
-        leadingIcon = { Icon(imageVector = Icons.Default.Search, contentDescription = "search") },
-        colors = TextFieldDefaults.textFieldColors(backgroundColor = MaterialTheme.colors.surface),
-        placeholder = { Text(stringResource(R.string.placeholder_search)) },
-        modifier = modifier
-            .fillMaxWidth()
-            .heightIn(min = 56.dp)
-    )
+    // Implement composable here
 }
 
 // Step: Align your body - Alignment
 @Composable
 fun AlignYourBodyElement(
-    @DrawableRes drawable: Int,
-    @StringRes text: Int,
     modifier: Modifier = Modifier
 ) {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier) {
-        Image(
-            modifier = Modifier
-                .size(88.dp)
-                .clip(CircleShape),
-            painter = painterResource(id = drawable),
-            contentDescription = "thumbnail",
-            contentScale = ContentScale.Crop
-        )
-        Text(
-            text = stringResource(id = text),
-            style = MaterialTheme.typography.h3,
-            modifier = Modifier.paddingFromBaseline(top = 24.dp, bottom =  8.dp)
-        )
-    }
+    // Implement composable here
 }
 
 // Step: Favorite collection card - Material Surface
 @Composable
 fun FavoriteCollectionCard(
-    @DrawableRes drawable: Int,
-    @StringRes text: Int,
     modifier: Modifier = Modifier
 ) {
-    Surface(
-        shape = MaterialTheme.shapes.small,
-        modifier = modifier
-        ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.width(192.dp)) {
-            Image(
-                painter = painterResource(id = drawable),
-                contentDescription = null,
-                contentScale = ContentScale.Crop,
-                modifier = Modifier.size(56.dp)
-            )
-            Text(
-                text = stringResource(id = text),
-                style = MaterialTheme.typography.h3,
-                modifier = Modifier.padding(horizontal = 16.dp)
-            )
-        }
-    }
+    // Implement composable here
 }
 
 // Step: Align your body row - Arrangements
@@ -125,11 +64,7 @@ fun FavoriteCollectionCard(
 fun AlignYourBodyRow(
     modifier: Modifier = Modifier
 ) {
-    LazyRow(modifier = modifier, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-        items(alignYourBodyData) { item ->
-            AlignYourBodyElement(item.drawable, item.text)
-        }
-    }
+    // Implement composable here
 }
 
 // Step: Favorite collections grid - LazyGrid
@@ -200,8 +135,6 @@ fun SearchBarPreview() {
 fun AlignYourBodyElementPreview() {
     MySootheTheme {
         AlignYourBodyElement(
-            drawable = alignYourBodyData[0].drawable,
-            text = alignYourBodyData[0].text,
             modifier = Modifier.padding(8.dp)
         )
     }
@@ -212,8 +145,6 @@ fun AlignYourBodyElementPreview() {
 fun FavoriteCollectionCardPreview() {
     MySootheTheme {
         FavoriteCollectionCard(
-            text = R.string.fc2_nature_meditations,
-            drawable = R.drawable.fc2_nature_meditations,
             modifier = Modifier.padding(8.dp)
         )
     }
